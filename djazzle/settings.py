@@ -15,7 +15,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3'
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'djzzle.db',
         'USER': '',
         'PASSWORD': '',
@@ -125,6 +125,10 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+
+    'rest_framework',
+
+    'djazzle.core',
 )
 
 # A sample logging configuration. The only tangible logging
