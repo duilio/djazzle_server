@@ -1,11 +1,16 @@
 from django.conf.urls import patterns, include, url
+from django.contrib import admin
+
 from rest_framework import routers
 
-router = routers.DefaultRouter()
+from djazzle.core.views import TrackViewSet
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+
+router = routers.DefaultRouter()
+router.register(r'tracks', TrackViewSet)
+
+
+admin.autodiscover()
 
 urlpatterns = patterns(
     '',
