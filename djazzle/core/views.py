@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-from core.models import Track
+from djazzle.core.models import Track
 
 
 class TrackViewSet(viewsets.ModelViewSet):
