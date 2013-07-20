@@ -6,7 +6,7 @@ from fabric.api import sudo, cd, run
 
 
 def deploy(branch='master'):
-    with cd('djazzle'):
+    with cd('djazzle_server'):
         run('git fetch')
         run('git checkout -f %s' % branch)
         run('git merge origin/%s' % branch)
