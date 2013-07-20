@@ -17,10 +17,10 @@ def reverse_wav(fin, fout):
 
 
 def mp3_to_wav(fin, fout):
-    p = subprocess.Popen(['ffmpeg', '-i', '-', '-f', 'wav', fout.name, '-y'],
+    p = subprocess.Popen(['ffmpeg', '-i', '-', '-y', fout.name],
                          stdin=subprocess.PIPE)
     p.communicate(fin.read())
 
 
 def wav_to_mp3(fin, fout):
-    subprocess.check_call(['ffmpeg', '-i', fin.name, '-b:a', '128k', fout.name, '-y'])
+    subprocess.check_call(['ffmpeg', '-i', fin.name, '-b:a', '128k', '-y', fout.name])
