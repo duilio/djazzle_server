@@ -8,6 +8,9 @@ class Track(models.Model):
     author = models.CharField(max_length=200)
     data = models.FileField(upload_to='tracks/')
 
+
+
+
 class TrackRandomDeezer(models.Model):
 	ids = models.IntegerField()
 	author = models.CharField(max_length=200)
@@ -57,13 +60,14 @@ class topSongArtist(models.Model):
 class topSongArtistUser(models.Model):
 	   preview = models.CharField(max_length=200)
 	   ids = models.CharField(max_length=200)
+	   title = models.CharField(max_length=200)
 
 	   
 	   def populateTop(self):
 	   	  r = requests.get("https://api.deezer.com/2.0/artist/1182/top")
 	   	  listOfstyle = r.json()
 	   	  for item in listOfstyle['data']:
-	      	    query = topSongArtist.objects.create(ids=item.values()[8], preview=item.values()[7])
+	      	    query = topSongArtist.objects.create(title=item.values()[1],ids=item.values()[8], preview=item.values()[7])
 	      	    query.save()
 
 
