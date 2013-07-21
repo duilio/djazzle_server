@@ -66,26 +66,6 @@ class topSongArtistUser(models.Model):
 	      	    query = topSongArtist.objects.create(ids=item.values()[8], preview=item.values()[7])
 	      	    query.save()
 
-	   	   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-					
-
-
-
-
-=======
-    reversed_data = models.FileField(upload_to='reverse_tracks/', null=True, blank=True)
->>>>>>> d8e36c77da27e7f355d507656076cbfc10a3e2ac
+class reservedData(models.Model):
+      reversed_data = models.FileField(upload_to='reverse_tracks/', null=True, blank=True)
