@@ -10,11 +10,11 @@ class Track(models.Model):
 
 
 
-
 class TrackRandomDeezer(models.Model):
 	ids = models.IntegerField()
 	author = models.CharField(max_length=200)
 	linkSong = models.CharField(max_length=200)
+
 
 class StyleType(models.Model):
 	ids = models.IntegerField()
@@ -38,12 +38,18 @@ class artistsList(models.Model):
 	  
 
 	  def populate(self):
-	      r = requests.get("https://api.deezer.com/2.0/genre/1057/artists")
-	      listOfstyle = r.json()
-	      for item in listOfstyle['data']:
-	      	query = artistsList.objects.create(ids=item.values()[3])
-	      	query.save()
 
+        query = StyleType.objects.all()
+	  	for i in query:
+        r = requests.get("https://api.deezer.com/2.0/genre/"+str(i.ids)+"/artists")
+        listOfstyle = r.json()
+        for item in listOfstyle['data']:
+            query = artistsList.objects.create(ids=item.values()[3])
+            query.save()
+
+
+
+	
 class topSongArtist(models.Model):
 	   preview = models.CharField(max_length=200)
 	   ids = models.CharField(max_length=200)

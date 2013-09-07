@@ -43,18 +43,18 @@ class TrackViewRandom(viewsets.ModelViewSet):
 
 class Style (viewsets.ModelViewSet):
 	model = StyleType()
-	a = model.popolateStyle()
+	#a = model.popolateStyle()
 	model.getGender()
 	models = StyleType
 
 class artistlist(viewsets.ModelViewSet):
 	a = artistsList()
-	a.populate()
+	#a.populate()
 	model = artistsList
 
 class topSong(viewsets.ModelViewSet):
 	top = topSongArtist()
-	top.populateTop()
+	#top.populateTop()
 	model = topSongArtist
 
 
